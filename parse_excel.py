@@ -1,4 +1,5 @@
 import xlrd
+import pprint
 
 book = xlrd.open_workbook('SOWC 2014 Stat Tables_Table 9.xlsx')
 sheet = book.sheet_by_name('Table 9 ')
@@ -23,5 +24,8 @@ for i in xrange(14, sheet.nrows):
             'marriage_by_18' : [row[12], row[13]],
         }
     }
+    if country == 'Zimbabwe':
+        break
 
 print data['Afghanistan']
+pprint.pprint(data)
